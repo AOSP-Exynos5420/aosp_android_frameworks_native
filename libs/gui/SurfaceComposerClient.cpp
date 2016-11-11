@@ -784,13 +784,12 @@ status_t SurfaceComposerClient::getHdrCapabilities(const sp<IBinder>& display,
 
 // ----------------------------------------------------------------------------
 
-//+++>
 #ifndef FORCE_SCREENSHOT_CPU_PATH
 #define SS_CPU_CONSUMER false
 #else
 #define SS_CPU_CONSUMER true
 #endif
-//--->
+
 
 status_t ScreenshotClient::capture(
         const sp<IBinder>& display,
@@ -844,7 +843,7 @@ status_t ScreenshotClient::update(const sp<IBinder>& display,
     status_t err = s->captureScreen(display, mProducer, sourceCrop,
             reqWidth, reqHeight, minLayerZ, maxLayerZ, useIdentityTransform,
 //+++>
-            static_cast<ISurfaceComposer::Rotation>(rotation), true);
+            static_cast<ISurfaceComposer::Rotation>(rotation), SS_CPU_CONSUMER);
 //===>
 //            static_cast<ISurfaceComposer::Rotation>(rotation));
 //--->

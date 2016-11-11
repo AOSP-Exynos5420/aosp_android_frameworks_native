@@ -38,6 +38,9 @@ LOCAL_CPPFLAGS += -Wno-padded
 
 LOCAL_CPPFLAGS += -DDEBUG_ONLY_CODE=$(if $(filter userdebug eng,$(TARGET_BUILD_VARIANT)),1,0)
 
+#Fix Graphical glitch on rotation
+LOCAL_CPPFLAGS += -DFORCE_SCREENSHOT_CPU_PATH
+
 LOCAL_SRC_FILES := \
 	IGraphicBufferConsumer.cpp \
 	IConsumerListener.cpp \
