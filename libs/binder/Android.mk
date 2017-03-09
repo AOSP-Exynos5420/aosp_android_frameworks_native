@@ -54,9 +54,6 @@ include $(CLEAR_VARS)
 ifeq ($(BOARD_NEEDS_MEMORYHEAPION),true)
 LOCAL_SHARED_LIBRARIES += libion_exynos
 LOCAL_CFLAGS += -DUSE_MEMORY_HEAP_ION
-ifeq ($(BOARD_NEEDS_MEMORYHEAPION),true)
-LOCAL_SHARED_LIBRARIES += libion_exynos
-LOCAL_CFLAGS += -DUSE_MEMORY_HEAP_ION
 
 ifeq ($(TARGET_SLSI_VARIANT),cm)
 SLSI_DIR := samsung_slsi-cm
@@ -66,7 +63,6 @@ SLSI_DIR := samsung_slsi
 PLATFORM_DIR := $(TARGET_BOARD_PLATFORM)-$(TARGET_SLSI_VARIANT)
 endif
 LOCAL_C_INCLUDES += hardware/$(SLSI_DIR)/$(PLATFORM_DIR)/include
-endif
 endif
 
 LOCAL_MODULE := libbinder
